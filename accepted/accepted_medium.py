@@ -40,3 +40,41 @@ class AcceptedMedium:
             l = l2.copy()
             l2 = []
         return [] if l[0] == '' else l
+
+    def convert_linear_str_to_zigzag(s: str, numRows: int) -> str:
+        # sourcery skip: use-contextlib-suppress
+        """
+            Link: https://leetcode.com/problems/zigzag-conversion/
+            Runtime: 72 ms
+        """
+        len_s = len(s)
+        if len_s < 3 or numRows == 1: return s
+        def x(l, t):
+            if len(l) < t:
+                l.append(None)
+                x(l, t)
+            return l
+        l = []
+        t = 0
+        while t < len_s:
+            l.append(list(s[t:numRows+t]))
+            t += numRows
+            l.append(list(reversed(x(list(s[t:numRows-2+t]), numRows-2))))
+            t += numRows-2
+        l = l[:-1] if l[-1] == [] else l
+        len_l = len(l)
+        s1 = ''
+        s2 = ''
+        s3 = ''
+        t = len(l[0]) - 2
+        for i in range(0, len_l, 2):
+            s1 += l[i].pop(0)
+            try:s3 += l[i].pop(t)
+            except IndexError: pass
+        for i in range(len(l[0])):
+            for j in range(len_l):
+                try:
+                    if l[j][i] is not None:
+                        s2 += l[j][i]
+                except IndexError: pass
+        return s1 + s2 + s3

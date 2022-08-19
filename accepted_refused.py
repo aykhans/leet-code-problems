@@ -1,7 +1,7 @@
-from .accepted import (AcceptedEasy,
+from accepted import (AcceptedEasy,
                     AcceptedMedium,
                     AcceptedHard)
-from .refused import (RefusedEasy,
+from refused import (RefusedEasy,
                     RefusedMedium,
                     RefusedHard)
 
