@@ -41,7 +41,7 @@ class AcceptedMedium:
             l2 = []
         return [] if l[0] == '' else l
 
-    def convert_linear_str_to_zigzag(s: str, numRows: int) -> str:
+    def convert_linear_str_to_zigzag(self, s: str, numRows: int) -> str:
         # sourcery skip: use-contextlib-suppress
         """
             Link: https://leetcode.com/problems/zigzag-conversion/
@@ -78,3 +78,24 @@ class AcceptedMedium:
                         s2 += l[j][i]
                 except IndexError: pass
         return s1 + s2 + s3
+
+    def is_valid_sudoku(self, board: List[List[str]]) -> bool:
+        # sourcery skip: list-comprehension, use-itertools-product
+        for i in board:
+            r = [j for j in i if j != '.' ]
+            if len(set(r)) < len(r): return False
+
+        for i in range(9):
+            r = [board[j][i] for j in range(9) if board[j][i] != '.']
+            if len(set(r)) < len(r): return False
+
+        for i in (0, 3, 6):
+            for t in (0, 3, 6):
+                r = []
+                for j in range(i, i+3):
+                    for k in range(t, t+3):
+                        if board[j][k] != '.':
+                            r.append(board[j][k])
+                if len(set(r)) < len(r): return False
+
+        return True
