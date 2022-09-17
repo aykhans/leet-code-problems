@@ -81,6 +81,10 @@ class AcceptedMedium:
 
     def is_valid_sudoku(self, board: List[List[str]]) -> bool:
         # sourcery skip: list-comprehension, use-itertools-product
+        """
+            Link: https://leetcode.com/problems/valid-sudoku/
+            Runtime: 105 ms
+        """
         for i in board:
             r = [j for j in i if j != '.' ]
             if len(set(r)) < len(r): return False
