@@ -117,7 +117,6 @@ class AcceptedMedium:
         for c in range(column_len):
             for r in range(row_len):
                 if matrix[c][r] == 0 and [c, r] not in dont_replace:
-                    print(c, r)
                     for i in range(column_len):
                         if matrix[i][r] != 0:
                             matrix[i][r] = 0
