@@ -125,3 +125,14 @@ class AcceptedMedium:
                         if matrix[c][i] != 0:
                             matrix[c][i] = 0
                             dont_replace.append([c, i])
+
+    def sort_colors(self, nums: List[int]) -> None:
+        """
+            Link: https://leetcode.com/problems/sort-colors/description/
+            Runtime: 52 ms
+        """
+        nums_len = len(nums)
+        for i in range(nums_len):
+            for j in range(nums_len-i-1):
+                if nums[j] > nums[j+1]:
+                    nums[j], nums[j+1] = nums[j+1], nums[j]
