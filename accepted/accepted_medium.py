@@ -103,3 +103,26 @@ class AcceptedMedium:
                 if len(set(r)) < len(r): return False
 
         return True
+
+    def set_zeroes(self, matrix: List[List[int]]) -> None:
+        # sourcery skip: use-itertools-product
+        """
+            Link: https://leetcode.com/problems/set-matrix-zeroes/description/
+            Runtime: 5780 ms
+        """
+        column_len = len(matrix)
+        row_len = len(matrix[0])
+        dont_replace = []
+
+        for c in range(column_len):
+            for r in range(row_len):
+                if matrix[c][r] == 0 and [c, r] not in dont_replace:
+                    print(c, r)
+                    for i in range(column_len):
+                        if matrix[i][r] != 0:
+                            matrix[i][r] = 0
+                            dont_replace.append([i, r])
+                    for i in range(row_len):
+                        if matrix[c][i] != 0:
+                            matrix[c][i] = 0
+                            dont_replace.append([c, i])
