@@ -1,3 +1,3 @@
-from .refused_easy import RefusedEasy
-from .refused_medium import RefusedMedium
-from .refused_hard import RefusedHard
+from .easy import RefusedEasy
+from .medium import RefusedMedium
+from .hard import RefusedHard

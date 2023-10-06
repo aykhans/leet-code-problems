@@ -17,7 +17,7 @@ class AcceptedEasy:
                 num -= roman_map[s[i]]
         return num
 
-    def length_of_last_word(self, s: str) -> int:  # sourcery skip: use-next
+    def length_of_last_word(self, s: str) -> int:
         """
             Link: https://leetcode.com/problems/length-of-last-word/
             Runtime: 54 ms
@@ -36,7 +36,6 @@ class AcceptedEasy:
         return strIndex - spaceIndex
 
     def plus_one(self, digits: List[int]) -> List[int]:
-        # sourcery skip: inline-immediately-returned-variable, list-comprehension
         """
             Link: https://leetcode.com/problems/plus-one/
             Runtime: 34 ms

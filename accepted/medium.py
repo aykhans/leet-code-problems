@@ -25,7 +25,7 @@ class AcceptedMedium:
             Link: https://leetcode.com/problems/letter-combinations-of-a-phone-number/
             Runtime: 39 ms
         """
-        # sourcery skip: use-itertools-product
+
         number_to_string = {'2': ['a', 'b', 'c'], '3': ['d', 'e', 'f'], '4': ['g', 'h', 'i'],
                     '5': ['j', 'k', 'l'], '6': ['m', 'n', 'o'], '7': ['p', 'q', 'r', 's'],
                     '8': ['t', 'u', 'v'], '9': ['w', 'x', 'y', 'z']}
@@ -42,7 +42,6 @@ class AcceptedMedium:
         return [] if l[0] == '' else l
 
     def convert_linear_str_to_zigzag(self, s: str, numRows: int) -> str:
-        # sourcery skip: use-contextlib-suppress
         """
             Link: https://leetcode.com/problems/zigzag-conversion/
             Runtime: 72 ms
@@ -80,7 +79,6 @@ class AcceptedMedium:
         return s1 + s2 + s3
 
     def is_valid_sudoku(self, board: List[List[str]]) -> bool:
-        # sourcery skip: list-comprehension, use-itertools-product
         """
             Link: https://leetcode.com/problems/valid-sudoku/
             Runtime: 105 ms
@@ -105,7 +103,6 @@ class AcceptedMedium:
         return True
 
     def set_zeroes(self, matrix: List[List[int]]) -> None:
-        # sourcery skip: use-itertools-product
         """
             Link: https://leetcode.com/problems/set-matrix-zeroes/description/
             Runtime: 5780 ms
