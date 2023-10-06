@@ -50,3 +50,21 @@ class AcceptedEasy:
             number_list.append(int(i))
 
         return number_list
+
+    def is_palindrome(x: int) -> bool:
+        """
+            Link: https://leetcode.com/problems/palindrome-number/
+            Runtime: 61 ms
+        """
+        if x < 0:
+            return False
+
+        reverse_x = 0
+        x2 = x
+
+        while x2 > 0:
+            reverse_x  = (reverse_x + (x2 % 10)) * 10
+            x2 //= 10
+
+        reverse_x //= 10
+        return reverse_x == x
