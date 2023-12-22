@@ -68,3 +68,15 @@ class AcceptedEasy:
 
         reverse_x //= 10
         return reverse_x == x
+
+def max_score(s: str) -> int:
+    """
+        Link: https://leetcode.com/problems/maximum-score-after-splitting-a-string/
+        Runtime: 47 ms
+    """
+    m_score = 0
+    for i in range(1, len(s)):
+        score = s[:i].count('0') + s[i:].count('1')
+        if s[:i].count('0') + s[i:].count('1') > m_score:
+            m_score = score
+    return m_score
