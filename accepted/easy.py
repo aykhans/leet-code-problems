@@ -80,3 +80,17 @@ def max_score(s: str) -> int:
         if s[:i].count('0') + s[i:].count('1') > m_score:
             m_score = score
     return m_score
+
+def merge(nums1: list[int], m: int, nums2: list[int], n: int) -> None:
+    """"
+        Link: https://leetcode.com/problems/merge-sorted-array/
+        Runtime: 39 ms
+    """
+    for i, n2 in enumerate(nums2):
+        for j, n1 in enumerate(nums1[i:m+i]):
+            if n2 < n1:
+                nums1[j+1:] = nums1[j:i+m]
+                nums1[i+j] = n2
+                break
+        else:
+            nums1[i+m] = n2
